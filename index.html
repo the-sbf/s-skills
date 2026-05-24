@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Source Skills Guide — History | Kula Revise</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--slate:#1C2733;--steel:#2A3A4A;--ice:#E8EDF2;--frost:#F4F7FA;--white:#FFF;
+--red:#C41E3A;--red-dk:#8B1528;--blue:#1B4F72;--blue-lt:#2E86C1;
+--gold:#D4A745;--ok:#27AE60;--warn:#E67E22;--bad:#E74C3C;
+--txt:#2C3E50;--txt2:#5D6D7E;--bdr:rgba(44,62,80,.12);
+--sh:0 2px 12px rgba(28,39,51,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--frost);color:var(--txt);line-height:1.6}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--slate) 0%,var(--steel) 60%,#1B4F72 100%);padding:2.5rem 1.5rem 2rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 41px)}
+.hero-ey{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.6rem;position:relative}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,5vw,2.5rem);color:var(--white);font-weight:700;line-height:1.15;margin-bottom:.4rem;position:relative}
+.hero-sub{color:rgba(255,255,255,.6);font-style:italic;font-size:.9rem;position:relative;max-width:560px;margin:0 auto}
+.hero-rule{width:50px;height:3px;background:var(--red);margin:1rem auto 0;position:relative}
+
+.container{max-width:780px;margin:0 auto;padding:1rem}
+
+/* INTRO */
+.intro{background:var(--white);border:1px solid var(--bdr);border-radius:4px;padding:1.4rem 1.6rem;margin:1.5rem 0;box-shadow:var(--sh)}
+.intro p{font-size:.9rem;color:var(--txt2);line-height:1.75}
+
+/* NAV GRID */
+.skill-nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.6rem;margin:1.5rem 0}
+.skill-nav-btn{display:flex;align-items:center;gap:.6rem;padding:.8rem 1rem;background:var(--white);border:2px solid var(--bdr);border-radius:4px;cursor:pointer;font-family:inherit;font-size:.85rem;font-weight:600;color:var(--txt);transition:all .15s;text-align:left}
+.skill-nav-btn:hover{border-color:var(--blue-lt);background:#EBF5FB}
+.skill-nav-btn.active{border-color:var(--red);background:var(--white)}
+.skill-icon{width:2.2rem;height:2.2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;color:#fff;flex-shrink:0}
+.icon-l1{background:linear-gradient(135deg,#27AE60,#2ECC71)}
+.icon-l2{background:linear-gradient(135deg,#E67E22,#F39C12)}
+.icon-l3{background:linear-gradient(135deg,#C41E3A,#E74C3C)}
+.icon-para{background:linear-gradient(135deg,#1B4F72,#2E86C1)}
+.skill-nav-label{line-height:1.3}
+.skill-nav-sub{display:block;font-size:.68rem;font-weight:400;color:var(--txt2);text-transform:uppercase;letter-spacing:.08em}
+
+/* SKILL CARDS */
+.skill-card{display:none;animation:fi .3s ease}
+.skill-card.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.card{background:var(--white);border:1px solid var(--bdr);border-radius:4px;margin:1rem 0;overflow:hidden;box-shadow:var(--sh)}
+.card-header{padding:1rem 1.4rem;border-bottom:1px solid var(--bdr);display:flex;align-items:center;gap:.8rem}
+.card-header h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--slate)}
+.card-level{font-size:.6rem;text-transform:uppercase;letter-spacing:.2em;font-weight:700;padding:.2rem .6rem;border-radius:2px}
+.lv-l1{background:#D5F5E3;color:#1E8449}
+.lv-l2{background:#FAE5D3;color:#CA6F1E}
+.lv-l3{background:#F5B7B1;color:#922B21}
+.lv-para{background:#D6EAF8;color:#1B4F72}
+.card-body{padding:1.3rem 1.5rem}
+.card-body p{font-size:.9rem;line-height:1.75;margin-bottom:.8rem;color:var(--txt)}
+.card-body p:last-child{margin-bottom:0}
+
+/* STEPS */
+.steps{margin:1rem 0}
+.step{display:flex;gap:.8rem;margin-bottom:.8rem;padding:.7rem .9rem;background:var(--frost);border-radius:4px;border-left:4px solid var(--gold)}
+.step-num{font-family:'Playfair Display',serif;font-weight:700;color:var(--red);font-size:1.15rem;min-width:1.5rem;padding-top:.1rem}
+.step-text{font-size:.88rem;line-height:1.65}
+.step-text strong{color:var(--slate)}
+
+/* EXAMPLES */
+.example-box{margin:.8rem 0;padding:.8rem 1rem;background:#FEF9E7;border-left:4px solid var(--gold);border-radius:0 4px 4px 0}
+.example-box .ex-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;font-weight:700;color:var(--gold);margin-bottom:.3rem}
+.example-box p{font-size:.85rem;line-height:1.7;color:var(--txt)}
+
+.warn-box{margin:.8rem 0;padding:.8rem 1rem;background:#FADBD8;border-left:4px solid var(--bad);border-radius:0 4px 4px 0}
+.warn-box .warn-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;font-weight:700;color:var(--bad);margin-bottom:.3rem}
+.warn-box p{font-size:.85rem;line-height:1.7;color:var(--txt)}
+
+.tip-box{margin:.8rem 0;padding:.8rem 1rem;background:#D5F5E3;border-left:4px solid var(--ok);border-radius:0 4px 4px 0}
+.tip-box .tip-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;font-weight:700;color:var(--ok);margin-bottom:.3rem}
+.tip-box p{font-size:.85rem;line-height:1.7;color:var(--txt)}
+
+/* QUESTION TYPE EXAMPLES */
+.q-example{background:var(--frost);border:1px solid var(--bdr);border-radius:4px;padding:.9rem 1.1rem;margin:.8rem 0}
+.q-example .qe-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;font-weight:700;color:var(--red);margin-bottom:.3rem}
+.q-example .qe-q{font-family:'Playfair Display',serif;font-size:.95rem;margin-bottom:.4rem}
+.q-example .qe-a{font-size:.84rem;color:var(--txt2);line-height:1.6}
+.q-example .qe-a strong{color:var(--ok)}
+
+/* WRITING FRAME */
+.frame{background:var(--white);border:2px dashed var(--bdr);border-radius:4px;padding:1rem 1.2rem;margin:.8rem 0}
+.frame-line{padding:.4rem 0;border-bottom:1px solid var(--ice);font-size:.85rem;line-height:1.6;display:flex;gap:.5rem}
+.frame-line:last-child{border-bottom:none}
+.frame-tag{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--blue);min-width:5rem;padding-top:.15rem;flex-shrink:0}
+
+@media(max-width:600px){
+  .container{padding:.5rem}
+  .card-body{padding:1rem}
+  .skill-nav{grid-template-columns:1fr 1fr}
+  .skill-nav-btn{padding:.6rem .7rem;font-size:.78rem}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<div class="hero-ey">Kula Revise · History · Cross-Cutting Skills</div>
+<h1>Source Skills Guide</h1>
+<div class="hero-sub">Every skill you need for source-based questions — extraction to synthesis. Tap a skill to learn the method, see examples, and avoid common mistakes.</div>
+<div class="hero-rule"></div>
+</div>
+
+<div class="container">
+
+<div class="skill-nav" id="nav"></div>
+<div id="cards"></div>
+
+</div>
+
+<script>
+const SKILLS = [
+{
+  id:'extraction',
+  title:'Extraction',
+  sub:'Finding information in sources',
+  iconClass:'icon-l1',
+  iconText:'L1',
+  levelClass:'lv-l1',
+  levelText:'Level 1',
+  content:`
+  <p>Extraction questions ask you to <strong>find specific information that is directly stated in the source</strong>. The answer is IN the text — you don't need to interpret, analyse, or add your own knowledge.</p>
+  <p>These are the most straightforward questions on the paper, but learners still lose marks by being careless. Here's how to get them right every time:</p>
+
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><div class="step-text"><strong>Read the question first, then the source.</strong> Underline the KEY WORDS in the question. What exactly are you being asked to find? A person? A reason? A city? A date?</div></div>
+    <div class="step"><span class="step-num">2</span><div class="step-text"><strong>Scan the source for those key words</strong> or their synonyms. The answer is usually within one or two sentences of where the key words appear in the source.</div></div>
+    <div class="step"><span class="step-num">3</span><div class="step-text"><strong>Check your answer is actually IN the source.</strong> If you can't point to the exact sentence where your answer comes from, you're probably interpreting rather than extracting. Go back to the source.</div></div>
+    <div class="step"><span class="step-num">4</span><div class="step-text"><strong>Count carefully.</strong> If the question says "identify TWO reasons," give exactly two. Not one, not three. Each point is worth marks — missing one means losing marks; adding extras wastes time.</div></div>
+  </div>
+
+  <div class="q-example">
+    <div class="qe-label">Example Question</div>
+    <div class="qe-q">"Who, according to the source, replaced Byrnes as Secretary of State in 1947?" (1×1 = 1 mark)</div>
+    <div class="qe-a">Scan for "Byrnes" → Find "with Byrnes out and George Marshall in as the Secretary of State" → <strong>Answer: George Marshall</strong></div>
+  </div>
+
+  <div class="q-example">
+    <div class="qe-label">Example Question</div>
+    <div class="qe-q">"Identify TWO famous cities that lie under the Soviet sphere of influence." (2×1 = 2 marks)</div>
+    <div class="qe-a">Scan for cities → Find the list: "Warsaw, Berlin, Prague, Vienna, Budapest, Belgrade, Bucharest and Sofia" → <strong>Any two from this list = 2 marks</strong>. Note: Athens is NOT in the Soviet sphere — the source says Greece "alone is free."</div>
+  </div>
+
+  <div class="warn-box"><div class="warn-label">Common Mistakes</div>
+  <p>Using your own knowledge instead of the source. Giving information that is historically true but not stated in THIS specific source. Providing more or fewer points than asked for. Copying entire paragraphs from the source instead of selecting the specific answer.</p></div>
+
+  <div class="tip-box"><div class="tip-label">Exam Tip</div>
+  <p>Extraction questions are your free marks — they require no interpretation or analysis, just careful reading. Budget 1–2 minutes per extraction question. Don't overthink them.</p></div>
+  `
+},
+{
+  id:'concept',
+  title:'Concept Definition',
+  sub:'Explaining terms "in your own words"',
+  iconClass:'icon-l1',
+  iconText:'L1',
+  levelClass:'lv-l1',
+  levelText:'Level 1',
+  content:`
+  <p>"Define the concept… in your own words" tests whether you <strong>understand a term well enough to explain it without copying the source</strong>. This is still Level 1 (knowledge), but it requires understanding, not just location.</p>
+
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><div class="step-text"><strong>Identify what KIND of thing it is.</strong> Is it a policy? A metaphor? An ideology? A process? A person's role? Start by placing the concept in a category: "The Iron Curtain was a metaphor…" / "Stalinisation was a process…"</div></div>
+    <div class="step"><span class="step-num">2</span><div class="step-text"><strong>Explain what it means, not just what it is.</strong> Don't just name it — say what it involved, who it affected, and why it mattered. A definition that could apply to anything is too vague.</div></div>
+    <div class="step"><span class="step-num">3</span><div class="step-text"><strong>Connect to the historical context</strong> when the question says "in the context of." This means your definition must link to the specific period, event, or situation. "Stalinisation in the context of Cold War Eastern Europe" needs to mention Eastern Europe, not just define the word generically.</div></div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-line"><span class="frame-tag">Category</span> [What kind of thing is it?]</div>
+    <div class="frame-line"><span class="frame-tag">Meaning</span> [What did it involve / what does it refer to?]</div>
+    <div class="frame-line"><span class="frame-tag">Context</span> [How does it connect to the specific historical situation?]</div>
+  </div>
+
+  <div class="q-example">
+    <div class="qe-label">Example</div>
+    <div class="qe-q">"Define the concept Iron Curtain in your own words." (1×2 = 2 marks)</div>
+    <div class="qe-a"><strong>Category:</strong> A metaphor / imaginary dividing line → <strong>Meaning:</strong> that separated communist Eastern Europe from capitalist Western Europe → <strong>Context:</strong> after the Soviet Union extended its sphere of influence over the region post-1945.</div>
+  </div>
+
+  <div class="warn-box"><div class="warn-label">Common Mistakes</div>
+  <p>Simply repeating what the source says (not "your own words"). Giving a vague, generic definition without context. Confusing similar concepts — e.g. Iron Curtain vs Berlin Wall, or Cominform vs Comintern.</p></div>
+  `
+},
+{
+  id:'interpretation',
+  title:'Interpretation',
+  sub:'Explaining what evidence means and why it matters',
+  iconClass:'icon-l2',
+  iconText:'L2',
+  levelClass:'lv-l2',
+  levelText:'Level 2',
+  content:`
+  <p>Interpretation questions ask you to go <strong>beyond what the source says</strong> to explain what it <strong>means</strong>, what it <strong>implies</strong>, or <strong>why it matters</strong>. This is the biggest cognitive jump in History — from WHAT to WHY.</p>
+
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><div class="step-text"><strong>Start with what the source SAYS</strong> (the evidence), then explain what it <strong>MEANS</strong> (the interpretation). Use bridge phrases: "This suggests that…" / "This implies…" / "The significance of this is…" / "This reveals…"</div></div>
+    <div class="step"><span class="step-num">2</span><div class="step-text"><strong>Ask WHY, not just WHAT.</strong> If the source describes something happening, go further: Why did it happen? Why does it matter? What were the consequences? What does it tell us about the period?</div></div>
+    <div class="step"><span class="step-num">3</span><div class="step-text"><strong>Consider language and purpose.</strong> Why did the author say it THIS way? What words did they choose? "Armageddon" is much stronger than "important meeting" — what does that word choice reveal about Acheson's thinking?</div></div>
+    <div class="step"><span class="step-num">4</span><div class="step-text"><strong>For "comment on" questions:</strong> Give your interpretation supported by evidence from the source. "Comment on" = interpret + explain significance. Always connect your interpretation to the bigger historical picture.</div></div>
+  </div>
+
+  <div class="q-example">
+    <div class="qe-label">Weak Answer (Description Only)</div>
+    <div class="qe-q">"Acheson called the meeting 'Armageddon.'"</div>
+    <div class="qe-a">This just repeats what the source says. No interpretation. <strong>0–1 marks.</strong></div>
+  </div>
+
+  <div class="q-example">
+    <div class="qe-label">Strong Answer (Interpretation)</div>
+    <div class="qe-q">"Acheson called the meeting 'Armageddon' because he believed the decision on aid to Greece and Turkey was existential — if Congress refused, communist expansion would destroy freedom across three continents. The apocalyptic language reveals the Cold War mentality where every decision was framed as a battle between good and evil."</div>
+    <div class="qe-a"><strong>Evidence → Meaning → Significance. 3–4 marks.</strong></div>
+  </div>
+
+  <div class="warn-box"><div class="warn-label">Common Mistakes</div>
+  <p>Just repeating what the source says without explaining what it means. Describing events without analysing their significance. Giving personal opinions ("I think this is bad") without supporting them with evidence. Writing "the source says…" five times without ever writing "this means…" or "this suggests…"</p></div>
+
+  <div class="tip-box"><div class="tip-label">The L2 Test</div>
+  <p>Read your answer back. If every sentence starts with "The source says…" you're still describing, not interpreting. At least half your answer should explain WHY something matters, not WHAT it says.</p></div>
+  `
+},
+{
+  id:'analysis',
+  title:'Source + Own Knowledge',
+  sub:'Combining evidence with what you\'ve studied',
+  iconClass:'icon-l2',
+  iconText:'L2',
+  levelClass:'lv-l2',
+  levelText:'Level 2',
+  content:`
+  <p>These questions require <strong>two things</strong>: evidence from the source AND additional information from your own studies. You need both — one without the other won't earn full marks.</p>
+
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><div class="step-text"><strong>Identify what the SOURCE tells you.</strong> What evidence or clues does it provide? Start your answer by referring to the source.</div></div>
+    <div class="step"><span class="step-num">2</span><div class="step-text"><strong>Add what you KNOW from your studies.</strong> What additional facts, context, or background information helps explain what the source shows? This is your own knowledge — it must go beyond what's in the source.</div></div>
+    <div class="step"><span class="step-num">3</span><div class="step-text"><strong>LINK them together.</strong> Don't just list source evidence and own knowledge separately. Show how your knowledge EXPLAINS what the source shows, or how the source CONFIRMS what you've studied.</div></div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-line"><span class="frame-tag">Source</span> The cartoon shows Greece and Turkey outside the Soviet bloc…</div>
+    <div class="frame-line"><span class="frame-tag">Own K</span> The Truman Doctrine (1947) provided US military and economic aid to these countries…</div>
+    <div class="frame-line"><span class="frame-tag">Link</span> The source shows the outcome; my knowledge explains the cause.</div>
+  </div>
+
+  <div class="warn-box"><div class="warn-label">Common Mistakes</div>
+  <p>Using only the source (no own knowledge). Using only own knowledge (no source reference). Listing both without connecting them. Using own knowledge that's true but doesn't relate to the question being asked.</p></div>
+
+  <div class="tip-box"><div class="tip-label">How to Spot These Questions</div>
+  <p>Look for the phrase "Using the evidence in the source AND your own knowledge" — this is always a combined question. If it says "According to the source" only, it's extraction. The word "AND" is your cue.</p></div>
+  `
+},
+{
+  id:'reliability',
+  title:'Reliability & Bias',
+  sub:'Evaluating whether you can trust a source',
+  iconClass:'icon-l3',
+  iconText:'L3',
+  levelClass:'lv-l3',
+  levelText:'Level 3',
+  content:`
+  <p>Reliability questions ask: <strong>can a historian trust this source?</strong> The answer is almost never simply "yes" or "no." You need to weigh strengths against limitations — showing you can hold two ideas at once.</p>
+
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><div class="step-text"><strong>WHO created it?</strong> What was their position? Did they have first-hand knowledge or insider access? Were they an eyewitness? An expert? A politician with an agenda?</div></div>
+    <div class="step"><span class="step-num">2</span><div class="step-text"><strong>WHEN was it created?</strong> During the events (contemporary = more immediate, but possibly less reflective) or after (retrospective = more perspective, but memory may fade or be shaped by later events)?</div></div>
+    <div class="step"><span class="step-num">3</span><div class="step-text"><strong>WHY was it created?</strong> What was the purpose? To inform? To persuade? To justify? To rally support? Purpose shapes content — a political speech has different reliability than a private diary or an academic study.</div></div>
+    <div class="step"><span class="step-num">4</span><div class="step-text"><strong>WHAT perspective does it represent?</strong> Does it show only one side? Would the other side tell a different story? Every source has a perspective — that doesn't make it unreliable, but it does mean a historian needs to be aware of it.</div></div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-line"><span class="frame-tag">Reliable</span> This source is reliable because… [WHO + WHEN reason]</div>
+    <div class="frame-line"><span class="frame-tag">However</span> However, a historian should note that… [WHY + PERSPECTIVE limitation]</div>
+  </div>
+
+  <div class="q-example">
+    <div class="qe-label">Example</div>
+    <div class="qe-q">"Explain why a historian would consider Churchill's Iron Curtain speech reliable." (2×2 = 4 marks)</div>
+    <div class="qe-a"><strong>Point 1:</strong> Churchill had first-hand knowledge from wartime conferences with Stalin (Yalta, Potsdam), giving him insider understanding of Soviet intentions. <strong>Point 2:</strong> The speech was delivered in March 1946, during the very period of emerging Cold War tensions — making it a contemporary primary source. <strong>However:</strong> Churchill's anti-communist stance and political goal of rallying American support mean the language may overstate the threat.</div>
+  </div>
+
+  <div class="warn-box"><div class="warn-label">Common Mistakes</div>
+  <p>"Reliable because it's a primary source" — primary sources can be biased. "Unreliable because it's biased" — all sources have a perspective; bias doesn't automatically mean unreliable. "Reliable because it's in a textbook" — textbooks also have perspectives and may simplify. Confusing the author's opinion with unreliability — an informed opinion from an insider IS valuable evidence.</p></div>
+
+  <div class="tip-box"><div class="tip-label">The Key Move</div>
+  <p>Show the examiner you can hold TWO ideas at once: the source IS valuable for certain reasons AND has limitations for other reasons. That balanced evaluation is what earns Level 3 marks.</p></div>
+  `
+},
+{
+  id:'comparison',
+  title:'Source Comparison',
+  sub:'Finding connections between two sources',
+  iconClass:'icon-l3',
+  iconText:'L3',
+  levelClass:'lv-l3',
+  levelText:'Level 3',
+  content:`
+  <p>Comparison questions ask you to find <strong>connections between sources</strong>. How does one source support, contradict, or extend another? You must discuss BOTH sources together — not describe each one separately.</p>
+
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><div class="step-text"><strong>Identify the THEME that connects them.</strong> What topic or idea do both sources address? This is your starting point — the bridge between them.</div></div>
+    <div class="step"><span class="step-num">2</span><div class="step-text"><strong>Find specific EVIDENCE in each source</strong> that relates to this shared theme. You need concrete details from both, not vague summaries.</div></div>
+    <div class="step"><span class="step-num">3</span><div class="step-text"><strong>Explain the CONNECTION.</strong> Use linking phrases: "Source A states… and this is supported by Source B which shows…" / "Source A's claim is confirmed by Source B's evidence that…" / "Together, these sources demonstrate…"</div></div>
+    <div class="step"><span class="step-num">4</span><div class="step-text"><strong>For 4-mark questions:</strong> You need TWO comparison points, each with evidence from both sources and an explanation of the connection. That's 2×2 = 4 marks.</div></div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-line"><span class="frame-tag">Theme</span> Both sources address [shared topic]…</div>
+    <div class="frame-line"><span class="frame-tag">Source A</span> Source A states that [specific evidence]…</div>
+    <div class="frame-line"><span class="frame-tag">Source B</span> This is supported/confirmed by Source B which shows [specific evidence]…</div>
+    <div class="frame-line"><span class="frame-tag">Link</span> Together, these sources demonstrate that…</div>
+  </div>
+
+  <div class="warn-box"><div class="warn-label">Common Mistakes</div>
+  <p>Describing each source separately without making connections between them. Saying "the sources are similar" without explaining HOW or providing evidence. Comparing the authors instead of the content. Saying sources "can't be compared" because they discuss different aspects of the same topic — they can, and that's often the point.</p></div>
+  `
+},
+{
+  id:'paragraph',
+  title:'Paragraph Writing',
+  sub:'Synthesising sources + own knowledge into an argument',
+  iconClass:'icon-para',
+  iconText:'¶',
+  levelClass:'lv-para',
+  levelText:'8 Marks',
+  content:`
+  <p>The paragraph question tests <strong>synthesis</strong> — weaving source evidence and your own knowledge into a coherent argument. It's assessed holistically (as a whole piece of writing), not point by point.</p>
+
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><div class="step-text"><strong>TOPIC SENTENCE:</strong> Address the question directly in your first sentence. State your argument. This tells the examiner you understand what's being asked. Don't start with background — start with your answer.</div></div>
+    <div class="step"><span class="step-num">2</span><div class="step-text"><strong>SOURCE EVIDENCE:</strong> Use specific evidence from at least TWO sources. Reference them by number (Source 1A, Source 1C). Don't just name the source — use its content as proof for your argument.</div></div>
+    <div class="step"><span class="step-num">3</span><div class="step-text"><strong>OWN KNOWLEDGE:</strong> Add at least ONE piece of information not in the sources. This proves you've studied the topic. It must support your argument — not just be a random fact.</div></div>
+    <div class="step"><span class="step-num">4</span><div class="step-text"><strong>CONCLUDING SENTENCE:</strong> Return to the question. Show how your evidence answers it. The best conclusions name the mechanism — HOW and WHY, not just WHAT.</div></div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-line"><span class="frame-tag">Topic</span> [Directly address the question — state your argument]</div>
+    <div class="frame-line"><span class="frame-tag">Evidence</span> [Source reference + specific detail from at least 2 sources]</div>
+    <div class="frame-line"><span class="frame-tag">Own K</span> [Additional fact/context from your own studies]</div>
+    <div class="frame-line"><span class="frame-tag">Conclude</span> [Link back to the question — HOW and WHY]</div>
+  </div>
+
+  <div class="q-example">
+    <div class="qe-label">Level 1 (0–2 marks) — What this looks like</div>
+    <div class="qe-a">A list of disconnected facts. No topic sentence. No source references. No own knowledge. No conclusion. Just describing WHAT happened without explaining WHY.</div>
+  </div>
+
+  <div class="q-example">
+    <div class="qe-label">Level 2 (3–5 marks) — What this looks like</div>
+    <div class="qe-a">Mostly relevant evidence that relates to the topic. Some understanding shown. But no clear argument structure, or sources are named without using specific evidence, or own knowledge is missing.</div>
+  </div>
+
+  <div class="q-example">
+    <div class="qe-label">Level 3 (6–8 marks) — What this looks like</div>
+    <div class="qe-a">Clear topic sentence. Specific source evidence woven in. Own knowledge that extends the argument. A conclusion that synthesises — showing the mechanism (HOW and WHY), not just naming events.</div>
+  </div>
+
+  <div class="tip-box"><div class="tip-label">Length</div>
+  <p>About 8 lines / 80 words. Quality over quantity — a focused, well-structured short paragraph beats a long, rambling one every time. You have about 10–12 minutes for this question.</p></div>
+  `
+}
+];
+
+// RENDER
+function renderNav(){
+  document.getElementById('nav').innerHTML = SKILLS.map((s,i) =>
+    '<button class="skill-nav-btn'+(i===0?' active':'')+'" onclick="showSkill('+i+')" id="nav-'+i+'">' +
+    '<div class="skill-icon '+s.iconClass+'">'+s.iconText+'</div>' +
+    '<div class="skill-nav-label">'+s.title+'<span class="skill-nav-sub">'+s.sub+'</span></div></button>'
+  ).join('');
+}
+
+function renderCards(){
+  document.getElementById('cards').innerHTML = SKILLS.map((s,i) =>
+    '<div class="skill-card'+(i===0?' active':'')+'" id="card-'+i+'">' +
+    '<div class="card"><div class="card-header">' +
+    '<span class="card-level '+s.levelClass+'">'+s.levelText+'</span>' +
+    '<h2>'+s.title+'</h2></div>' +
+    '<div class="card-body">'+s.content+'</div></div></div>'
+  ).join('');
+}
+
+function showSkill(i){
+  document.querySelectorAll('.skill-nav-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.skill-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('nav-'+i).classList.add('active');
+  document.getElementById('card-'+i).classList.add('active');
+  document.getElementById('card-'+i).scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+renderNav();
+renderCards();
+</script>
+</body>
+</html>
